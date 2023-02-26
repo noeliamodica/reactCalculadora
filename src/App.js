@@ -2,8 +2,18 @@
 import './App.css';
 import Logo from './imagenes/calculadora.png'
 import Boton from './componentes/Boton';
+import Pantalla from './componentes/Pantalla';
+import BotonClear from './componentes/BotonClear';
+import { useState } from 'react';
 
 function App() {
+
+  const [input, setInput] = useState('');
+
+  const agregarInput = valor =>{
+    setInput(input + valor);
+
+  };
   return (
     <div className='App'>
       
@@ -13,8 +23,11 @@ function App() {
           className='logo'
           alt='Logo' />
       </div>
-
+      
       <div className='contenedor-calculadora'>
+      
+          
+          
         <div className='fila'></div>
           <Boton>1</Boton>
           <Boton>4</Boton>
@@ -37,6 +50,9 @@ function App() {
           <Boton>*</Boton>
           <Boton>/</Boton>
         <div className='fila'></div>
+        
+        <Pantalla input={input} />  
+        <BotonClear> Clear </BotonClear>
       </div>
 
      
